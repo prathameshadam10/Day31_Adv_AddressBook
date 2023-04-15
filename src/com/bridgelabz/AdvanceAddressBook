@@ -1,0 +1,4 @@
+# UC1   ->  Ability to create a Address Book Service DB
+sql     ->  create database AddressBookService;
+output  ->  3	132	11:39:12	create database AddressBookService	1 row(s) affected	0.000 sec
+
