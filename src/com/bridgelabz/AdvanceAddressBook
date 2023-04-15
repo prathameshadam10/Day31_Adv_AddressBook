@@ -23,3 +23,20 @@ output  -> 3	135	11:51:12	create table AddressBook(
             Zip int NOT NULL,
             Phone_Number varchar(10) NOT NULL,
             Email varchar(50) NOT NULL)	0 row(s) affected	0.046 sec
+            
+            
+# UC3   ->  Ability to insert new Contacts to Address Book
+sql     ->  insert into AddressBook values('Prathamesh Adam', 'Kuchan Nagar', 'Solapur', 'Maharastra', 413005, '8983930906', 'prathameshadam10@gmail.com');
+            insert into AddressBook values('Jayesh Gontyal', 'Sunil nagar', 'Solapur', 'Maharastra', 413006, '9863783863', 'jayeshgontyal@gmail.com');
+            insert into AddressBook values('Sagar dhumale', 'Dc chowk', 'Delhi', 'Delhi', 112344, '9876546732', 'sagarDhumale@gmail.com');
+            insert into AddressBook values('Samarth Mutkiri', 'Kuchan Nagar', 'Solapur', 'Maharastra', 413005, '7863930906', 'samarthmutkiri@gmail.com');
+
+            select * from AddressBook;
+
+            3	140	13:29:43	insert into AddressBook values('Samarth Mutkiri', 'Kuchan Nagar', 'Solapur', 'Maharastra', 413005, '7863930906', 'samarthmutkiri@gmail.com')	1 row(s) affected	0.016 sec
+            ---------------------------------------------------------------------------------------------------------------------
+output  ->  Prathamesh Adam	| Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 8983930906	| prathameshadam10@gmail.com
+            Jayesh Gontyal	| Sunil nagar	| Solapur	| Maharastra	| 413006	| 9863783863	| jayeshgontyal@gmail.com
+            Sagar dhumale	| Dc chowk	    | Delhi	    | Delhi	        | 112344	| 9876546732	| sagarDhumale@gmail.com
+            Samarth Mutkiri	| Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 7863930906	| samarthmutkiri@gmail.com
+            ---------------------------------------------------------------------------------------------------------------------
