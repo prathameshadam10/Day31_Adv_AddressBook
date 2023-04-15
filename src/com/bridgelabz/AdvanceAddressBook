@@ -119,7 +119,20 @@ sql     -> select count(type) from AddressBook
 output  ->  ----------------
              count(type)
              2
-            ----------------                                          
+            ---------------- 
+# UC11   -> Ability to add person to both Friend and  Family
+sql      -> insert into AddressBook(First_And_Last_Name, AddressBook_Name, type, Address, City, State, Zip, Phone_Number, Email)
+            values("Laxmiraj Ittam" ,"jdk", "Friends", "Padma Nagar", "Solapur", "Maharastra", 413005, "9876543210", "laxmiraj@gmail.com"),
+            ("Anup Kumar" ,"efg", "Family", "Swarget", "Pune", "Maharastra", 233005, "9879543210", "anupkumar@gmail.com");
+          ---------------------------------------------------------------------------------------------------------------------
+output  ->  Prathamesh Adam	| abc |  Family  | Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 9999999999	| prathameshadam10@gmail.com
+            Sagar dhumale	| xyz |  Friends | Dc chowk         | Delhi	| Delhi	            | 112344	| 9876546732	| sagarDhumale@gmail.com
+            Samarth Mutkiri	| xyz |  Friends | Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 7863930906	| samarthmutkiri@gmail.com
+            Laxmiraj Ittam	| jdk | Friends  | Padma Nagar	| Solapur	| Maharastra	| 413005	|  9876543210	| laxmiraj@gmail.com
+            Anup Kumar	            | efg |  Family  | Swarget          | Pune	| Maharastra	| 233005	|  9879543210	| anupkumar@gmail.com
+            ---------------------------------------------------------------------------------------------------------------------
+
+
 
 
 
