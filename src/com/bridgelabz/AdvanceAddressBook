@@ -56,4 +56,15 @@ output  ->  Prathamesh Adam	| Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 999
             Sagar dhumale	| Dc chowk	            | Delhi	| Delhi	            | 112344	| 9876546732	| sagarDhumale@gmail.com
             Samarth Mutkiri	| Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 7863930906	| samarthmutkiri@gmail.com
             ---------------------------------------------------------------------------------------------------------------------
+            
+# UC5   -> Ability to Delete existing contact person using their name
+sql     -> delete from AddressBook where First_And_Last_Name = "Jayesh Gontyal";
+          3	6	16:08:59	delete from AddressBook where First_And_Last_Name = "Jayesh Gontyal"	1 row(s) affected	0.016 sec
+          select * from AddressBook;
+           ---------------------------------------------------------------------------------------------------------------------
+output  ->  Prathamesh Adam	| Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 9999999999	| prathameshadam10@gmail.com
+            Sagar dhumale	| Dc chowk	            | Delhi     | Delhi	            | 112344	| 9876546732	| sagarDhumale@gmail.com
+            Samarth Mutkiri	| Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 7863930906	| samarthmutkiri@gmail.com
+            ---------------------------------------------------------------------------------------------------------------------
+
 
