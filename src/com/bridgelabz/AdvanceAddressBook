@@ -106,6 +106,21 @@ output  ->  Prathamesh Adam	| abc |  Family  | Kuchan Nagar	| Solapur	| Maharast
             Sagar dhumale	| xyz |  Friends | Dc chowk         | Delhi	| Delhi	            | 112344	| 9876546732	| sagarDhumale@gmail.com
             Samarth Mutkiri	| xyz |  Friends | Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 7863930906	| samarthmutkiri@gmail.com
             ---------------------------------------------------------------------------------------------------------------------
+            
+# UC10   -> Ability to get number of contact persons i.e. count by type
+sql     -> select count(type) from AddressBook
+           where type = "Family"; 
+output  ->  ----------------
+             count(type)
+             1
+            ----------------                                          
+sql     -> select count(type) from AddressBook
+           where type = "Friends"; 
+output  ->  ----------------
+             count(type)
+             2
+            ----------------                                          
+
 
 
 
