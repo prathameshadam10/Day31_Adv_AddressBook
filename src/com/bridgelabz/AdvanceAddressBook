@@ -69,8 +69,18 @@ output  ->  Prathamesh Adam	| Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 999
 
 # UC6   -> Ability to Retrieve Person belonging to a City or State from the Address Book
 sql     -> select City, State from AddressBook where First_And_Last_Name = "Sagar Dhumale";
-          ----------------
+           3	8	16:33:57	select City, State from AddressBook where First_And_Last_Name = "Sagar Dhumale"
+            LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+output  -> ----------------
            City   | State
            Delhi  | Delhi
           ----------------
+# UC7   -> Ability to understand the size of address book by City and State
+sql     -> select count(City), count(State) from AddressBook where City = "Solapur" And State = "Maharastra";
+           3	9	16:41:30	select count(City), count(State) from AddressBook where City = "Solapur" And State = "Maharastra"
+            LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
 
+output  ->  ----------------
+             City   | State
+              2     |   2
+            ----------------
