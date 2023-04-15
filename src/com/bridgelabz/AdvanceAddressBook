@@ -67,4 +67,10 @@ output  ->  Prathamesh Adam	| Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 999
             Samarth Mutkiri	| Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 7863930906	| samarthmutkiri@gmail.com
             ---------------------------------------------------------------------------------------------------------------------
 
+# UC6   -> Ability to Retrieve Person belonging to a City or State from the Address Book
+sql     -> select City, State from AddressBook where First_And_Last_Name = "Sagar Dhumale";
+          ----------------
+           City   | State
+           Delhi  | Delhi
+          ----------------
 
