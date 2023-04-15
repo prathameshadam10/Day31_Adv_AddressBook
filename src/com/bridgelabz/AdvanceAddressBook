@@ -37,6 +37,23 @@ sql     ->  insert into AddressBook values('Prathamesh Adam', 'Kuchan Nagar', 'S
             ---------------------------------------------------------------------------------------------------------------------
 output  ->  Prathamesh Adam	| Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 8983930906	| prathameshadam10@gmail.com
             Jayesh Gontyal	| Sunil nagar	| Solapur	| Maharastra	| 413006	| 9863783863	| jayeshgontyal@gmail.com
+            Sagar dhumale	| Dc chowk	            | Delhi     | Delhi	            | 112344	| 9876546732	| sagarDhumale@gmail.com
+            Samarth Mutkiri	| Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 7863930906	| samarthmutkiri@gmail.com
+            ---------------------------------------------------------------------------------------------------------------------
+
+           0	146	13:53:54	update AddressBook
+            set Phone_Number = "7777777777"
+            where First_And_Last_Name = "Prathamesh Adam"	Error Code: 1175. You are using safe update mode and you tried to update a table without a WHERE that uses a KEY column.
+            To disable safe mode, toggle the option in Preferences -> SQL Editor and reconnect.	0.000 sec
+
+# UC4   -> Ability to edit existing contact person using their name
+sql     -> update AddressBook set Phone_Number = "9999999999" where First_And_Last_Name = "Prathamesh Adam";
+           select * from AddressBook;
+           3	4	15:57:15	update AddressBook set Phone_Number = "9999999999" where First_And_Last_Name = "Prathamesh Adam"	1 row(s) affected Rows matched: 1  Changed: 1  Warnings: 0	0.015 sec
+           ---------------------------------------------------------------------------------------------------------------------
+output  ->  Prathamesh Adam	| Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 9999999999	| prathameshadam10@gmail.com
+            Jayesh Gontyal	| Sunil nagar	| Solapur	| Maharastra	| 413006	| 9863783863	| jayeshgontyal@gmail.com
             Sagar dhumale	| Dc chowk	            | Delhi	| Delhi	            | 112344	| 9876546732	| sagarDhumale@gmail.com
             Samarth Mutkiri	| Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 7863930906	| samarthmutkiri@gmail.com
             ---------------------------------------------------------------------------------------------------------------------
+
