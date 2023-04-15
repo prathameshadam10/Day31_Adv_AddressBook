@@ -37,6 +37,6 @@ sql     ->  insert into AddressBook values('Prathamesh Adam', 'Kuchan Nagar', 'S
             ---------------------------------------------------------------------------------------------------------------------
 output  ->  Prathamesh Adam	| Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 8983930906	| prathameshadam10@gmail.com
             Jayesh Gontyal	| Sunil nagar	| Solapur	| Maharastra	| 413006	| 9863783863	| jayeshgontyal@gmail.com
-            Sagar dhumale	| Dc chowk	    | Delhi	    | Delhi	        | 112344	| 9876546732	| sagarDhumale@gmail.com
+            Sagar dhumale	| Dc chowk	            | Delhi	| Delhi	            | 112344	| 9876546732	| sagarDhumale@gmail.com
             Samarth Mutkiri	| Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 7863930906	| samarthmutkiri@gmail.com
             ---------------------------------------------------------------------------------------------------------------------
