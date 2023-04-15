@@ -2,3 +2,24 @@
 sql     ->  create database AddressBookService;
 output  ->  3	132	11:39:12	create database AddressBookService	1 row(s) affected	0.000 sec
 
+# UC2   ->  Ability to create a Address Book Table with first and last names, address, city,state, zip, phone number and email as its attributes
+sql     ->  use AddressBookService;
+
+            create table AddressBook(
+            First_And_Last_Name varchar(30) NOT NULL,
+            Address varchar(50) NOT NULL,
+            City varchar(30) NOT NULL,
+            State varchar(30) NOT NULL,
+            Zip int NOT NULL,
+            Phone_Number varchar(10) NOT NULL,
+            Email varchar(50) NOT NULL);
+
+            select * from AddressBook;
+output  -> 3	135	11:51:12	create table AddressBook(
+            First_And_Last_Name varchar(30) NOT NULL,
+            Address varchar(50) NOT NULL,
+            City varchar(30) NOT NULL,
+            State varchar(30) NOT NULL,
+            Zip int NOT NULL,
+            Phone_Number varchar(10) NOT NULL,
+            Email varchar(50) NOT NULL)	0 row(s) affected	0.046 sec
