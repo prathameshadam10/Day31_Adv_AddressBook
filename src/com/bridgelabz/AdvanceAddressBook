@@ -84,3 +84,15 @@ output  ->  ----------------
              City   | State
               2     |   2
             ----------------
+            
+ # UC8   -> Ability to retrieve entries sorted alphabetically by Person’s name for a given city
+ sql    -> select First_And_Last_Name from AddressBook where City = "Solapur" order by First_And_Last_Name asc;
+           3	10	16:53:43	select First_And_Last_Name from AddressBook where City = "Solapur" order by First_And_Last_Name asc
+            LIMIT 0, 1000	2 row(s) returned	0.000 sec / 0.000 sec
+output  ->  ----------------
+             Prathamesh Adam
+             Samarth Mutkiri
+            ----------------
+
+
+
