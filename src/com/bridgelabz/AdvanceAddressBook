@@ -93,6 +93,20 @@ output  ->  ----------------
              Prathamesh Adam
              Samarth Mutkiri
             ----------------
+# UC9   -> Ability to identify each Address Book with name and Type.
+sql     -> alter table AddressBook add AddressBook_Name varchar(20) after First_And_Last_Name;
+           alter table AddressBook add type varchar(20) after AddressBook_Name;
+           update AddressBook set AddressBook_Name = "abc", type = "Family"
+           where First_And_Last_Name in("Prathamesh Adam");
+           update AddressBook set AddressBook_Name = "xyz", type = "Friends"
+           where First_And_Last_Name in("Sagar Dhumale", "Samarth Mutkiri");
+           select * from AddressBook;
+           ---------------------------------------------------------------------------------------------------------------------
+output  ->  Prathamesh Adam	| abc |  Family  | Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 9999999999	| prathameshadam10@gmail.com
+            Sagar dhumale	| xyz |  Friends | Dc chowk         | Delhi	| Delhi	            | 112344	| 9876546732	| sagarDhumale@gmail.com
+            Samarth Mutkiri	| xyz |  Friends | Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 7863930906	| samarthmutkiri@gmail.com
+            ---------------------------------------------------------------------------------------------------------------------
+
 
 
 
