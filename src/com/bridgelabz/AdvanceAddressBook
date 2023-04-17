@@ -2,3 +2,139 @@
 sql     ->  create database AddressBookService;
 output  ->  3	132	11:39:12	create database AddressBookService	1 row(s) affected	0.000 sec
 
+# UC2   ->  Ability to create a Address Book Table with first and last names, address, city,state, zip, phone number and email as its attributes
+sql     ->  use AddressBookService;
+
+            create table AddressBook(
+            First_And_Last_Name varchar(30) NOT NULL,
+            Address varchar(50) NOT NULL,
+            City varchar(30) NOT NULL,
+            State varchar(30) NOT NULL,
+            Zip int NOT NULL,
+            Phone_Number varchar(10) NOT NULL,
+            Email varchar(50) NOT NULL);
+
+            select * from AddressBook;
+output  -> 3	135	11:51:12	create table AddressBook(
+            First_And_Last_Name varchar(30) NOT NULL,
+            Address varchar(50) NOT NULL,
+            City varchar(30) NOT NULL,
+            State varchar(30) NOT NULL,
+            Zip int NOT NULL,
+            Phone_Number varchar(10) NOT NULL,
+            Email varchar(50) NOT NULL)	0 row(s) affected	0.046 sec
+            
+            
+# UC3   ->  Ability to insert new Contacts to Address Book
+sql     ->  insert into AddressBook values('Prathamesh Adam', 'Kuchan Nagar', 'Solapur', 'Maharastra', 413005, '8983930906', 'prathameshadam10@gmail.com');
+            insert into AddressBook values('Jayesh Gontyal', 'Sunil nagar', 'Solapur', 'Maharastra', 413006, '9863783863', 'jayeshgontyal@gmail.com');
+            insert into AddressBook values('Sagar dhumale', 'Dc chowk', 'Delhi', 'Delhi', 112344, '9876546732', 'sagarDhumale@gmail.com');
+            insert into AddressBook values('Samarth Mutkiri', 'Kuchan Nagar', 'Solapur', 'Maharastra', 413005, '7863930906', 'samarthmutkiri@gmail.com');
+
+            select * from AddressBook;
+
+            3	140	13:29:43	insert into AddressBook values('Samarth Mutkiri', 'Kuchan Nagar', 'Solapur', 'Maharastra', 413005, '7863930906', 'samarthmutkiri@gmail.com')	1 row(s) affected	0.016 sec
+            ---------------------------------------------------------------------------------------------------------------------
+output  ->  Prathamesh Adam	| Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 8983930906	| prathameshadam10@gmail.com
+            Jayesh Gontyal	| Sunil nagar	| Solapur	| Maharastra	| 413006	| 9863783863	| jayeshgontyal@gmail.com
+            Sagar dhumale	| Dc chowk	            | Delhi     | Delhi	            | 112344	| 9876546732	| sagarDhumale@gmail.com
+            Samarth Mutkiri	| Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 7863930906	| samarthmutkiri@gmail.com
+            ---------------------------------------------------------------------------------------------------------------------
+
+           0	146	13:53:54	update AddressBook
+            set Phone_Number = "7777777777"
+            where First_And_Last_Name = "Prathamesh Adam"	Error Code: 1175. You are using safe update mode and you tried to update a table without a WHERE that uses a KEY column.
+            To disable safe mode, toggle the option in Preferences -> SQL Editor and reconnect.	0.000 sec
+
+# UC4   -> Ability to edit existing contact person using their name
+sql     -> update AddressBook set Phone_Number = "9999999999" where First_And_Last_Name = "Prathamesh Adam";
+           select * from AddressBook;
+           3	4	15:57:15	update AddressBook set Phone_Number = "9999999999" where First_And_Last_Name = "Prathamesh Adam"	1 row(s) affected Rows matched: 1  Changed: 1  Warnings: 0	0.015 sec
+           ---------------------------------------------------------------------------------------------------------------------
+output  ->  Prathamesh Adam	| Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 9999999999	| prathameshadam10@gmail.com
+            Jayesh Gontyal	| Sunil nagar	| Solapur	| Maharastra	| 413006	| 9863783863	| jayeshgontyal@gmail.com
+            Sagar dhumale	| Dc chowk	            | Delhi	| Delhi	            | 112344	| 9876546732	| sagarDhumale@gmail.com
+            Samarth Mutkiri	| Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 7863930906	| samarthmutkiri@gmail.com
+            ---------------------------------------------------------------------------------------------------------------------
+            
+# UC5   -> Ability to Delete existing contact person using their name
+sql     -> delete from AddressBook where First_And_Last_Name = "Jayesh Gontyal";
+          3	6	16:08:59	delete from AddressBook where First_And_Last_Name = "Jayesh Gontyal"	1 row(s) affected	0.016 sec
+          select * from AddressBook;
+           ---------------------------------------------------------------------------------------------------------------------
+output  ->  Prathamesh Adam	| Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 9999999999	| prathameshadam10@gmail.com
+            Sagar dhumale	| Dc chowk	            | Delhi     | Delhi	            | 112344	| 9876546732	| sagarDhumale@gmail.com
+            Samarth Mutkiri	| Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 7863930906	| samarthmutkiri@gmail.com
+            ---------------------------------------------------------------------------------------------------------------------
+
+# UC6   -> Ability to Retrieve Person belonging to a City or State from the Address Book
+sql     -> select City, State from AddressBook where First_And_Last_Name = "Sagar Dhumale";
+           3	8	16:33:57	select City, State from AddressBook where First_And_Last_Name = "Sagar Dhumale"
+            LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+output  -> ----------------
+           City   | State
+           Delhi  | Delhi
+          ----------------
+# UC7   -> Ability to understand the size of address book by City and State
+sql     -> select count(City), count(State) from AddressBook where City = "Solapur" And State = "Maharastra";
+           3	9	16:41:30	select count(City), count(State) from AddressBook where City = "Solapur" And State = "Maharastra"
+            LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+
+output  ->  ----------------
+             City   | State
+              2     |   2
+            ----------------
+            
+ # UC8   -> Ability to retrieve entries sorted alphabetically by Person’s name for a given city
+ sql    -> select First_And_Last_Name from AddressBook where City = "Solapur" order by First_And_Last_Name asc;
+           3	10	16:53:43	select First_And_Last_Name from AddressBook where City = "Solapur" order by First_And_Last_Name asc
+            LIMIT 0, 1000	2 row(s) returned	0.000 sec / 0.000 sec
+output  ->  ----------------
+             Prathamesh Adam
+             Samarth Mutkiri
+            ----------------
+# UC9   -> Ability to identify each Address Book with name and Type.
+sql     -> alter table AddressBook add AddressBook_Name varchar(20) after First_And_Last_Name;
+           alter table AddressBook add type varchar(20) after AddressBook_Name;
+           update AddressBook set AddressBook_Name = "abc", type = "Family"
+           where First_And_Last_Name in("Prathamesh Adam");
+           update AddressBook set AddressBook_Name = "xyz", type = "Friends"
+           where First_And_Last_Name in("Sagar Dhumale", "Samarth Mutkiri");
+           select * from AddressBook;
+           ---------------------------------------------------------------------------------------------------------------------
+output  ->  Prathamesh Adam	| abc |  Family  | Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 9999999999	| prathameshadam10@gmail.com
+            Sagar dhumale	| xyz |  Friends | Dc chowk         | Delhi	| Delhi	            | 112344	| 9876546732	| sagarDhumale@gmail.com
+            Samarth Mutkiri	| xyz |  Friends | Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 7863930906	| samarthmutkiri@gmail.com
+            ---------------------------------------------------------------------------------------------------------------------
+            
+# UC10   -> Ability to get number of contact persons i.e. count by type
+sql     -> select count(type) from AddressBook
+           where type = "Family"; 
+output  ->  ----------------
+             count(type)
+             1
+            ----------------                                          
+sql     -> select count(type) from AddressBook
+           where type = "Friends"; 
+output  ->  ----------------
+             count(type)
+             2
+            ---------------- 
+# UC11   -> Ability to add person to both Friend and  Family
+sql      -> insert into AddressBook(First_And_Last_Name, AddressBook_Name, type, Address, City, State, Zip, Phone_Number, Email)
+            values("Laxmiraj Ittam" ,"jdk", "Friends", "Padma Nagar", "Solapur", "Maharastra", 413005, "9876543210", "laxmiraj@gmail.com"),
+            ("Anup Kumar" ,"efg", "Family", "Swarget", "Pune", "Maharastra", 233005, "9879543210", "anupkumar@gmail.com");
+          ---------------------------------------------------------------------------------------------------------------------
+output  ->  Prathamesh Adam	| abc |  Family  | Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 9999999999	| prathameshadam10@gmail.com
+            Sagar dhumale	| xyz |  Friends | Dc chowk         | Delhi	| Delhi	            | 112344	| 9876546732	| sagarDhumale@gmail.com
+            Samarth Mutkiri	| xyz |  Friends | Kuchan Nagar	| Solapur	| Maharastra	| 413005	| 7863930906	| samarthmutkiri@gmail.com
+            Laxmiraj Ittam	| jdk | Friends  | Padma Nagar	| Solapur	| Maharastra	| 413005	|  9876543210	| laxmiraj@gmail.com
+            Anup Kumar	            | efg |  Family  | Swarget          | Pune	| Maharastra	| 233005	|  9879543210	| anupkumar@gmail.com
+            ---------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
